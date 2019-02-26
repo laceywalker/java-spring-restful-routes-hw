@@ -1,4 +1,4 @@
-package com.example.OneToManyHW.Components;
+package com.example.OneToManyHW.components;
 
 import com.example.OneToManyHW.models.File;
 import com.example.OneToManyHW.models.Folder;
@@ -9,7 +9,9 @@ import com.example.OneToManyHW.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -27,10 +29,14 @@ public class DataLoader implements ApplicationRunner {
         User user = new User("Jim");
         userRepository.save(user);
 
-        Folder folder = new Folder();
+        User user2 = new User("Tony");
+
+        Folder folder = new Folder("the big one", user);
         folderRepository.save(folder);
 
-        File file = new File("Document", "exe", 200, folder );
+        Folder folder2 = new Folder("the small one", user2);
+
+        File file = new File("Document", "exe", 200, folder);
         fileRepository.save(file);
 
 

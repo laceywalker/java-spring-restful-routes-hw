@@ -8,7 +8,6 @@ import javax.persistence.*;
 
 public class Folder {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,7 +18,6 @@ public class Folder {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
 
 //    private List<File> files;
 
@@ -57,4 +55,6 @@ public class Folder {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 }

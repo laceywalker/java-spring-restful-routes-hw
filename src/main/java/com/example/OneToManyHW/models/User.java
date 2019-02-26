@@ -17,12 +17,12 @@ public class User {
     private String userName;
 
     @OneToMany(mappedBy = "user")
-    private List<Folder> usersFolders;
+    private List<Folder> userFolders;
 
 
     public User(String userName){
         this.userName = userName;
-        this.usersFolders = new ArrayList<>();
+        this.userFolders = new ArrayList<>();
     }
 
     public User(){
@@ -45,11 +45,15 @@ public class User {
         this.userName = userName;
     }
 
-    public List<Folder> getUsersFolders() {
-        return usersFolders;
+    public List<Folder> getUserFolders() {
+        return userFolders;
     }
 
-    public void setUsersFolders(List<Folder> usersFolders) {
-        this.usersFolders = usersFolders;
+    public void setUsersFolders(List<Folder> userFolders) {
+        this.userFolders = userFolders;
+    }
+
+    public void addFolderToUserFolders(Folder folder){
+        this.userFolders.add(folder);
     }
 }
