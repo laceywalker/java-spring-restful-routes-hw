@@ -22,7 +22,7 @@ public class File {
     private int size;
 
     @ManyToOne
-
+    @JoinColumn(name = "folder_id", nullable = false)
     Folder folder;
 
     public File(String fileName, String extension, int size, Folder folder){

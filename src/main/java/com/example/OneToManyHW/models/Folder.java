@@ -1,6 +1,8 @@
 package com.example.OneToManyHW.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -19,13 +21,14 @@ public class Folder {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-//    private List<File> files;
+    @OneToMany(mappedBy = "folder")
+    private List<File> files;
 
 
     public Folder(String title, User user){
         this.title = title;
         this.user = user;
-//        this.files = new ArrayList<>();
+        this.files = new ArrayList<>();
     }
 
     public Folder(){
@@ -56,5 +59,11 @@ public class Folder {
         this.user = user;
     }
 
+    public List<File> getFiles() {
+        return files;
+    }
 
+    public void setFiles(List<File> files) {
+        this.files = files;
+    }
 }
